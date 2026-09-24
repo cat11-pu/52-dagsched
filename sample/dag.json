@@ -1,0 +1,18 @@
+{
+  "max_retries": 1,
+  "succeeded": 2,
+  "no_dangling": true,
+  "tasks": [
+    {"task": "t1", "deps": []},
+    {"task": "t2", "deps": ["t1"]},
+    {"task": "t3", "deps": ["t1"]},
+    {"task": "t4", "deps": ["t2", "t3"]},
+    {"task": "t5", "deps": ["t4"]}
+  ],
+  "runs": [
+    {"task": "t1", "ok": true},
+    {"task": "t2", "ok": false},
+    {"task": "t2", "ok": false},
+    {"task": "t3", "ok": true}
+  ]
+}
